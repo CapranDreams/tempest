@@ -1,0 +1,10 @@
+{
+    "station_id": "",
+    "api_key": "",
+    "latitude": 0,
+    "longitude": 0,
+    "host": "127.0.0.1",
+    "port": 48860,
+    "api_template": "https://swd.weatherflow.com/swd/rest/observations/stn/{station_id}?bucket=1&ob_fields=timestamp%2Creport_interval%2Cwind_lull%2Cwind_avg%2Cwind_gust%2Cwind_dir%2Cstation_pressure%2Csea_level_pressure%2Cair_temp%2Crh%2Cilluminance%2Cuv%2Csolar_radiation%2Cprecip_accumulation%2Clocal_day_precip_accumulation%2Cprecip_type%2Cstrike_count%2Cstrike_distance%2Cnc_precip_accumulation%2Cnc_local_day_precip_accumulation%2Cair_temp_today_high%2Cair_temp_today_low%2Cair_temp_yesterday_high%2Cair_temp_yesterday_low%2Csea_level_pressure_today_high%2Csea_level_pressure_today_low%2Chumidity_today_high%2Chumidity_today_low&units_temp=f&units_wind=mph&units_pressure=mb&units_precip=in&units_distance=mi&api_key={api_key}",
+    "update_interval": 15
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempest Weather Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="/tempest/static/css/styles.css">
+    <base href="/tempest/">
+</head>
+<body>
+    <div class="container-fluid dashboard">
+        <header>
+            <h1>Tempest: Sasha Sky Harbor</h1>
+            <div class="last-updated">Last updated: <span id="last-updated">--</span></div>
+        </header>
+        
+        <!-- Top metrics panel -->
+        <div class="row metrics-panel">
+            <div class="col metric-card">
+                <div class="metric-title">Temperature</div>
+                <div class="metric-value" id="temperature">--</div>
+                <div class="metric-unit">°C</div>
+            </div>
+            <div class="col metric-card">
+                <div class="metric-title">Humidity</div>
+                <div class="metric-value" id="humidity">--</div>
+                <div class="metric-unit">%</div>
+            </div>
+            <div class="col metric-card">
+                <div class="metric-title">Illuminance</div>
+                <div class="metric-value" id="illuminance">--</div>
+                <div class="metric-unit">lux</div>
+            </div>
+            <div class="col metric-card">
+                <div class="metric-title">Precipitation</div>
+                <div class="metric-value" id="precipitation">--</div>
+                <div class="metric-unit">mm</div>
+            </div>
+            <div class="col metric-card">
+                <div class="metric-title">Lightning</div>
+                <div class="metric-value" id="lightning">--</div>
+                <div class="metric-unit">strikes</div>
+            </div>
+        </div>
+        
+        <!-- Main content area -->
+        <div class="row main-content">
+            <!-- Map panel -->
+            <div class="col-md-10 map-container">
+                <div id="map" data-map-id="{{ map_id }}"></div>
+                <div class="map-overlay">
+                    <div class="wind-indicator">
+                        <div class="wind-arrow" id="wind-arrow"></div>
+                        <div class="wind-speed" id="wind-speed-overlay">-- km/h</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wind data panel -->
+            <div class="col-md-2 wind-data-panel">
+                <h3>Wind Parameters</h3>
+                <div class="wind-parameter">
+                    <div class="param-label">Current Speed:</div>
+                    <div class="param-value" id="current-wind-speed">-- km/h</div>
+                </div>
+                <div class="wind-parameter">
+                    <div class="param-label">Direction:</div>
+                    <div class="param-value" id="wind-direction">-- °</div>
+                </div>
+                <div class="wind-parameter">
+                    <div class="param-label">Gust Speed:</div>
+                    <div class="param-value" id="wind-gust">-- km/h</div>
+                </div>
+                <div class="wind-parameter">
+                    <div class="param-label">Lull Speed:</div>
+                    <div class="param-value" id="wind-lull">-- km/h</div>
+                </div>
+                <div class="wind-parameter">
+                    <div class="param-label">24h Average:</div>
+                    <div class="param-value" id="avg-wind-speed">-- km/h</div>
+                </div>
+                <div class="wind-parameter">
+                    <div class="param-label">24h Maximum:</div>
+                    <div class="param-value" id="max-wind-speed">-- km/h</div>
+                </div>
+                <div class="wind-parameter">
+                    <div class="param-label">24h Minimum:</div>
+                    <div class="param-value" id="min-wind-speed">-- km/h</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wind history chart -->
+        <div class="row">
+            <div class="col-12 chart-container wind-speed-container">
+                <h3>Wind Speed History (24 Hours)</h3>
+                <div style="position: relative; height: 100%; width: 100%;">
+                    <canvas id="wind-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <!-- Chart.js with date adapter - use specific versions known to work together -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.1/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.2.0/dist/chartjs-adapter-luxon.min.js"></script>
+
+    <script src="/tempest/static/js/dashboard.js"></script>
+</body>
+</html> 
